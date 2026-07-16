@@ -7,10 +7,10 @@ function M.setup(opts)
 end
 
 local function expand_path(path)
-  if path and path:sub(1, 1) == "~" then
-    return vim.fn.expand(path)
+  if not path then
+    return path
   end
-  return path
+  return vim.fn.expand(path)
 end
 
 local function list_files(dir)
